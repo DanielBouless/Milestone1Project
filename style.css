@@ -1,3 +1,10 @@
+body{
+    background-color: red;
+}
+#gameboard{
+    height: 100vh;
+    background-color: red;
+}
 #find-me{
     width: 10px;
     height: 10px;
