@@ -15,7 +15,7 @@ body{
     text-align: center;
 }
 
-#game-options, #score{
+#game-options, #player-info{
     margin: 0 5vh;
     padding: 0 5vh;
     width: 20%;
