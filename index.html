@@ -13,13 +13,81 @@
     <div id="container-2">
       <div id="game-options">
         <p>Select game options</p>
+        <form action="">
+        <label for="preset-difficulty">Select difficulty: </label>
+        <select name="preset-difficulty" id="preset-difficulty">
+          <option value="Select">--Select--</option>
+          <option value="Easy">Easy</option>
+          <option value="Normal">Normal</option>
+          <option value="Hard">Hard</option>
+          <option value="Custom">Custom</option>
+        </select>
+        <p>Custom Settings</p>
+        <label for="number-clicks">Max Number of Clicks (1-50): </label><br />
+        <input
+          type="number"
+          id="number-clicks"
+          name="number-clicks"
+          min="1"
+          max="50"
+        />
+        <br />
+        <label for="points-minus">Points deducted Per Click (1-50): </label
+        ><br />
+        <input
+          type="number"
+          id="points-minus"
+          name="points-minus"
+          min="1"
+          max="50"
+        />
+        <br />
+        <label for="start-points">Points To Start With (1-200): </label><br />
+        <input
+          type="number"
+          id="start-points"
+          name="start-points"
+          min="1"
+          max="200"
+        />
+        <br />
+        <label for="increase-multi"
+          >Number of Clicks To Increase Multiplier (1-5): </label
+        ><br />
+        <input
+          type="number"
+          id="increase-multi"
+          name="increase-multi"
+          min="1"
+          max="5"
+        />
+        <br />
+        <label for="time-limit">Time Limit (1-120sec): </label><br />
+        <input
+          type="number"
+          id="increase-multi"
+          name="increase-multi"
+          min="1"
+          max="120"
+        />
+        <br />
+        <label for="bet">Bet Per Round: </label><br />
+        <input
+          type="number"
+          id="increase-multi"
+          name="increase-multi"
+          min="1"
+          max="99999"
+        />
+        <br />
+        <input type="submit" value="submit" />
       </div>
+      </form>
       <div id="gameboard">
         <div id="find-me"></div>
       </div>
       <div id="score">
         <p>coutner, score, insults, etc</p>
-        , score, insults, etc
       </div>
     </div>
   </body>
