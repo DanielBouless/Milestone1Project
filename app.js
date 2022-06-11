@@ -6,16 +6,50 @@ const gameboardDiv = document.getElementById('gameboard');
 const findMeDiv = document.getElementById('find-me');
 const startBtn = document.getElementById('start-btn');
 const playState = document.getElementById('play-state');
-
+const submitBtn = document.getElementById('submit-btn');
 
 let clicks=0;
-let initScore = 100;
-let score;
+let initScore;
+let score = initScore;
 let bet = 0;
 let multiplier = 1;
-let clicksForMulti = 5;
-let maxClicks = 10;
-let timer = 120;
+let multiUp;
+let maxClicks;
+let timer;
+let ptsPerClick;
+
+//Setup game
+//create event listener on submit-btn to update playerInfo
+
+submitBtn.addEventListener('click', ()=>{
+    //Counter
+    maxClicks = document.getElementById('number-clicks').value;
+    document.getElementById('number-clicks').value = '';
+    counterDiv.textContent = 'Clicks Remaining: ' + maxClicks;
+
+    //Score
+    scoreDiv.textContent = 'Score: ' + document.getElementById('start-points').value;
+    initScore = document.getElementById('start-points').value;
+    document.getElementById('start-points').value = '';
+    ptsPerClick = document.getElementById('points-minus').value;
+    document.getElementById('points-minus').value = '';
+    
+    //timer
+    timerDiv.textContent =  'Time Remaining: ' + document.getElementById('time-limit').value;
+    timer =document.getElementById('time-limit').value;
+
+    //Store Clicks to increase multi
+    multiUp = document.getElementById('increase-multi').value;
+    document.getElementById('increase-multi').value = '';
+
+    //Store Bet amount
+    bet = document.getElementById('bet').value;
+    document.getElementById('bet').value = '';
+})
+
+
+
+
 
 //Get number of gameboard clicks
 gameboardDiv.addEventListener('click',()=>{
@@ -24,7 +58,7 @@ gameboardDiv.addEventListener('click',()=>{
     counterDiv.textContent = clicksRemaining;
 
     //Update Multiplier after every click
-    changeMulti(clicks, clicksForMulti);
+    changeMulti(clicks, multiUp);
 
     //display score after every click
     displayScore(clicks);
@@ -57,25 +91,30 @@ startBtn.addEventListener('click',()=>{
     findMeDiv.style.cssText = 'bottom:'+ topDist + 'px; left:'+ leftDist + 'px;';
     })
 
-    
+//Create event listener on black box; save timer
+findMeDiv.addEventListener('click',()=>{
+    let timeLeft = timer;
+    console.log(timeLeft)
+    timer = 0;
+})
 
 //Display score Function
         //Scoring formula = [InitalScore - (#ofClicks*CurrentScore)]*X, where X = Multiplier + (Bet*2) and Bet <= ScoreBeforePlaying. X gets shown at the end of the game for final score
 
 function displayScore(clicks){
-    score = initScore-clicks;
+    score = initScore - (clicks*ptsPerClick);
     scoreDiv.textContent = score;
     console.log(clicks, score);
 }
 
 //Clicks to change multiplier. Will need to cycle back to zero once max multi is reached.
 
-function changeMulti(clicks, clicksForMulti){
-    if (clicks%clicksForMulti==0){
+function changeMulti(clicks, multiUp){
+    if (clicks%multiUp==0){
         multiplier++;
         if (multiplier>5){
-            multiplier=0;
+            multiplier=1;
         };
-        multiplerDiv.textContent = multiplier;
+        multiplerDiv.textContent = 'Multiplier: ' + multiplier;
     }
 }

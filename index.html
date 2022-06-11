@@ -65,8 +65,8 @@
         <label for="time-limit">Time Limit (1-120sec): </label><br />
         <input
           type="number"
-          id="increase-multi"
-          name="increase-multi"
+          id="time-limit"
+          name="time-limit"
           min="1"
           max="120"
         />
@@ -74,13 +74,13 @@
         <label for="bet">Bet Per Round: </label><br />
         <input
           type="number"
-          id="increase-multi"
-          name="increase-multi"
+          id="bet"
+          name="bet"
           min="1"
           max="99999"
         />
         <br />
-        <input type="submit" value="submit" id="submit-btn"/>
+        <input type="button" value="submit" id="submit-btn"/>
         <br />
         <input type="button" value="start" id="start-btn" />
       </div>
@@ -90,11 +90,11 @@
       </div>
       <div id="player-info">
         <p id="play-state">Ready?</p>
-        <div id="counter">0</div>
-        <div id="score">100</div>
-        <div id="multipler">1</div>
+        <div id="counter">Clicks Remaining: </div>
+        <div id="score">Score: </div>
+        <div id="multipler">Multiplier: 1</div>
         <div id="distractions">distractions placeholder</div>
-        <div id="timer">timer placeholder</div>
+        <div id="timer">Time Remaining: </div>
       </div>
     </div>
   </body>
