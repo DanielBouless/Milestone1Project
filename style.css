@@ -26,10 +26,12 @@ body{
 #gameboard{
     height: 80vh;
     width: 100vh;
-    background-color: blue;
+    background-color: white;
+    position: relative;
 }
 #find-me{
     width: 10px;
     height: 10px;
     background-color: black;
+    position: absolute;
 }
