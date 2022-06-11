@@ -11,12 +11,14 @@ const submitBtn = document.getElementById('submit-btn');
 let clicks=0;
 let initScore;
 let score = initScore;
-let bet = 0;
+let bet;
 let multiplier = 1;
 let multiUp;
 let maxClicks;
 let timer;
 let ptsPerClick;
+let diffState;
+
 
 //Setup game
 //create event listener on submit-btn to update playerInfo
@@ -45,9 +47,23 @@ submitBtn.addEventListener('click', ()=>{
     //Store Bet amount
     bet = document.getElementById('bet').value;
     document.getElementById('bet').value = '';
+
+    //Set Difficulty
+
+    switch (document.getElementById('preset-difficulty').value){
+        case 'Easy':
+            diffState = setDifficulty('100px');
+            break;
+        case 'Normal':
+            diffState = setDifficulty('10px');
+            break;
+        case 'Hard':
+            diffState = setDifficulty('5px');
+            break;
+        default:
+    }
+
 })
-
-
 
 
 
@@ -87,8 +103,8 @@ startBtn.addEventListener('click',()=>{
 
     //change location of square
     let topDist = Math.floor(Math.random()* gameboardDiv.offsetHeight);
-    let leftDist = Math.floor(Math.random()* gameboardDiv.offsetWidth);
-    findMeDiv.style.cssText = 'bottom:'+ topDist + 'px; left:'+ leftDist + 'px;';
+    let leftDist = Math.floor(Math.random()* gameboardDiv.offsetWidth); 
+    findMeDiv.style.cssText = 'bottom:'+ topDist + 'px; left:'+ leftDist + 'px;'+ diffState;
     })
 
 //Create event listener on black box; save timer
@@ -117,4 +133,13 @@ function changeMulti(clicks, multiUp){
         };
         multiplerDiv.textContent = 'Multiplier: ' + multiplier;
     }
+}
+
+//Change difficulty function
+
+function setDifficulty(size){
+    findMeDiv.style.width = size;
+    findMeDiv.style.height = size;
+    boxsize = 'width:' + size+'; height:'+size+';';
+    return boxsize
 }
