@@ -10,8 +10,7 @@ body{
 #container-2 {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    width: fit-content;
+    width: 100%;
     text-align: center;
 }
 
@@ -25,7 +24,7 @@ body{
 
 #gameboard{
     height: 80vh;
-    width: 100vh;
+    width: 80vh;
     background-color: white;
     position: relative;
 }
@@ -34,4 +33,8 @@ body{
     height: 10px;
     background-color: black;
     position: absolute;
+}
+
+#start-btn{
+    display:none;
 }

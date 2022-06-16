@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="container-1"><h1>Yuh, Lets game yuh</h1></div>
+    <div id="container-1"><h1>No-Eyes-Whack-A-Mole</h1></div>
 
     <div id="container-2">
       <div id="game-options">
@@ -20,8 +20,7 @@
           <option value="Easy">Easy</option>
           <option value="Normal">Normal</option>
           <option value="Hard">Hard</option>
-        </select>
-        <p>Custom Settings</p>
+        </select><br><br>
         <label for="number-clicks">Max Number of Clicks (1-50): </label><br />
         <input
           type="number"
@@ -29,46 +28,8 @@
           name="number-clicks"
           min="1"
           max="50"
-        />
+        />        
         <br />
-        <label for="points-minus">Points deducted Per Click (1-50): </label
-        ><br />
-        <input
-          type="number"
-          id="points-minus"
-          name="points-minus"
-          min="1"
-          max="50"
-        />
-        <br />
-        <label for="start-points">Points To Start With (1-200): </label><br />
-        <input
-          type="number"
-          id="start-points"
-          name="start-points"
-          min="1"
-          max="200"
-        />
-        <br />
-        <label for="increase-multi"
-          >Number of Clicks To Increase Multiplier (5-25): </label
-        ><br />
-        <input
-          type="number"
-          id="increase-multi"
-          name="increase-multi"
-          min="5"
-          max="25"
-        />
-        <br />
-        <label for="time-limit">Time Limit (1-120sec): </label><br />
-        <input
-          type="number"
-          id="time-limit"
-          name="time-limit"
-          min="1"
-          max="120"
-        />
         <br />
         <label for="bet">Bet Per Round: </label><br />
         <input
@@ -78,9 +39,9 @@
           min="1"
           max="99999"
         />
-        <br />
+        <br /><br />
         <input type="button" value="submit" id="submit-btn"/>
-        <br />
+        <br /><br />
         <input type="button" value="start" id="start-btn" />
       </div>
       
@@ -89,11 +50,18 @@
       </div>
       <div id="player-info">
         <p id="play-state">Ready?</p>
-        <div id="counter">Clicks Remaining: </div>
-        <div id="score">Score: </div>
-        <div id="multipler">Multiplier: 1</div>
-        <div id="distractions">distractions placeholder</div>
-        <div id="timer">Time Remaining: </div>
+        <div id="counter">69</div>
+        <p class="game-settings">Clicks Remaining</p>
+        <div id="multiplier">1</div>
+        <p class="game-settings">Multiplier</p>
+        <div id="distractions">distractions placeholder</div><br>
+        <div id="timer">420</div>
+        <p class="game-settings">Time Left</p>
+        <div id="score">420</div>
+        <p class="game-settings">Points</p>
+        <div id="money-bag">0</div>
+        <p class="game-settings">Money Bag</p>
+        
       </div>
     </div>
   </body>

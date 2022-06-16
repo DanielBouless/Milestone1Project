@@ -1,6 +1,6 @@
 const counterDiv = document.getElementById('counter');
 const scoreDiv = document.getElementById('score');
-const multiplerDiv = document.getElementById('multipler');
+const multiplerDiv = document.getElementById('multiplier');
 const timerDiv = document.getElementById('timer');
 const gameboardDiv = document.getElementById('gameboard');
 const findMeDiv = document.getElementById('find-me');
@@ -8,17 +8,19 @@ const startBtn = document.getElementById('start-btn');
 const playState = document.getElementById('play-state');
 const submitBtn = document.getElementById('submit-btn');
 
+
 let clicks=0;
-let initScore;
-let score = initScore;
-let bet;
 let multiplier = 1;
-let multiUp;
+let initScore = 420;
+let score;
+let bet = 0;
 let maxClicks;
-let timer;
+let startTimer;
+let timer = 420;
 let ptsPerClick;
 let diffState;
-
+let moneyBag = 0;
+const insults = ['Nope', 'HA! Nope!','Not that one', 'Not this one ma dude','FIND ME!!!!']
 
 //Setup game
 //create event listener on submit-btn to update playerInfo
@@ -27,22 +29,20 @@ submitBtn.addEventListener('click', ()=>{
     //Counter
     maxClicks = document.getElementById('number-clicks').value;
     document.getElementById('number-clicks').value = '';
-    counterDiv.textContent = 'Clicks Remaining: ' + maxClicks;
-
-    //Score
-    scoreDiv.textContent = 'Score: ' + document.getElementById('start-points').value;
-    initScore = document.getElementById('start-points').value;
-    document.getElementById('start-points').value = '';
-    ptsPerClick = document.getElementById('points-minus').value;
-    document.getElementById('points-minus').value = '';
+    counterDiv.textContent = maxClicks;
     
-    //timer
-    timerDiv.textContent =  'Time Remaining: ' + document.getElementById('time-limit').value;
-    timer =document.getElementById('time-limit').value;
+    //timer, also clearInterval if timer less than 420
+    timerDiv.textContent =  timer;
+     if(timer<420){
+        clearInterval(startTimer)
+        timer = 420;
+        timerDiv.textContent =  timer;
+    }
+    //Change score
+    scoreDiv.textContent = initScore;
 
-    //Store Clicks to increase multi
-    multiUp = document.getElementById('increase-multi').value;
-    document.getElementById('increase-multi').value = '';
+    //change multiplier
+    multiplerDiv.textContent = 1;
 
     //Store Bet amount
     bet = document.getElementById('bet').value;
@@ -63,9 +63,11 @@ submitBtn.addEventListener('click', ()=>{
         default:
     }
 
+    //Hide submit-btn and show Start-btn
+    submitBtn.style.display = 'none';
+    startBtn.style.display = 'inline';
+   
 })
-
-
 
 //Get number of gameboard clicks
 gameboardDiv.addEventListener('click',()=>{
@@ -74,10 +76,13 @@ gameboardDiv.addEventListener('click',()=>{
     counterDiv.textContent = clicksRemaining;
 
     //Update Multiplier after every click
-    changeMulti(clicks, multiUp);
+    changeMulti(clicks);
 
     //display score after every click
     displayScore(clicks);
+    
+    //display different insult for every click
+    // displayInsult();
 })
 
 //Create events when hit start
@@ -85,14 +90,8 @@ gameboardDiv.addEventListener('click',()=>{
 
 startBtn.addEventListener('click',()=>{
     //start timer
-    setInterval(()=>{
-    timer--;
-    timerDiv.textContent = timer;
-    if(timer <=0){
-        timerDiv.textContent = 0;
-    }
-    },1000);
-
+    startTimer = setInterval(myTimer,1000)
+   
     //change words
     playState.textContent = 'SEEK!';
 
@@ -105,33 +104,36 @@ startBtn.addEventListener('click',()=>{
     let topDist = Math.floor(Math.random()* gameboardDiv.offsetHeight);
     let leftDist = Math.floor(Math.random()* gameboardDiv.offsetWidth); 
     findMeDiv.style.cssText = 'bottom:'+ topDist + 'px; left:'+ leftDist + 'px;'+ diffState;
-    })
+    
+    //hide Start-btn and show submit-btn
+    startBtn.style.display = 'none';
+    submitBtn.style.display = 'inline';
+})
 
-//Create event listener on black box; save timer
+//Create event listener on black box; save timer, show modal score box
 findMeDiv.addEventListener('click',()=>{
-    let timeLeft = timer;
-    console.log(timeLeft)
     timer = 0;
+    moneyBag += bet;
+    console.log(moneyBag)
+    document.getElementById('money-bag').innerHTML = moneyBag;
 })
 
 //Display score Function
-        //Scoring formula = [InitalScore - (#ofClicks*CurrentScore)]*X, where X = Multiplier + (Bet*2) and Bet <= ScoreBeforePlaying. X gets shown at the end of the game for final score
-
 function displayScore(clicks){
-    score = initScore - (clicks*ptsPerClick);
+    score = (initScore - clicks)*multiplier;
     scoreDiv.textContent = score;
     console.log(clicks, score);
 }
 
 //Clicks to change multiplier. Will need to cycle back to zero once max multi is reached.
 
-function changeMulti(clicks, multiUp){
-    if (clicks%multiUp==0){
+function changeMulti(clicks){
+    if (clicks%10==0){
         multiplier++;
         if (multiplier>5){
-            multiplier=1;
+            multiplier=5;
         };
-        multiplerDiv.textContent = 'Multiplier: ' + multiplier;
+        multiplerDiv.textContent = multiplier;
     }
 }
 
@@ -143,3 +145,16 @@ function setDifficulty(size){
     boxsize = 'width:' + size+'; height:'+size+';';
     return boxsize
 }
+
+//timer
+
+function myTimer(){    
+    timer--;
+    timerDiv.textContent = timer;
+    if(timer <=0){
+        timerDiv.textContent = 0;
+    }
+    };
+
+//insult
+
