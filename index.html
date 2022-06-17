@@ -8,30 +8,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="container-1"><h1>No-Eyes-Whack-A-Mole</h1></div>
+    <div id="container-1"><h1>Blind Whack-A-Mole</h1></div>
 
     <div id="container-2">
       <div id="game-options">
         <p>Select game options</p>
         <form action="">
-        <label for="preset-difficulty">Select difficulty: </label>
+        <label for="preset-difficulty">Select Difficulty: </label>
         <select name="preset-difficulty" id="preset-difficulty">
           <option value="Select">--Select--</option>
           <option value="Easy">Easy</option>
           <option value="Normal">Normal</option>
           <option value="Hard">Hard</option>
         </select><br><br>
-        <label for="number-clicks">Max Number of Clicks (1-50): </label><br />
-        <input
-          type="number"
-          id="number-clicks"
-          name="number-clicks"
-          min="1"
-          max="50"
-        />        
-        <br />
-        <br />
-        <label for="bet">Bet Per Round: </label><br />
+        <label for="bet">Bet: </label><br />
         <input
           type="number"
           id="bet"
@@ -50,17 +40,17 @@
       </div>
       <div id="player-info">
         <p id="play-state">Ready?</p>
-        <div id="counter">69</div>
-        <p class="game-settings">Clicks Remaining</p>
-        <div id="multiplier">1</div>
-        <p class="game-settings">Multiplier</p>
-        <div id="distractions">distractions placeholder</div><br>
-        <div id="timer">420</div>
-        <p class="game-settings">Time Left</p>
-        <div id="score">420</div>
-        <p class="game-settings">Points</p>
-        <div id="money-bag">0</div>
-        <p class="game-settings">Money Bag</p>
+        <div id="counter"  class="game-settings">69</div>
+        <p >Clicks Remaining</p>
+        <div id="multiplier"  class="game-settings">1</div>
+        <p >Multiplier</p>
+        <div id="distractions"  class="game-settings">distractions placeholder</div>
+        <div id="timer" class="game-settings">420</div>
+        <p >Time Left</p>
+        <div id="score" class="game-settings">420</div>
+        <p >Points</p>
+        <div id="money-bag" class="game-settings">0</div>
+        <p >Money Bag</p>
         
       </div>
     </div>

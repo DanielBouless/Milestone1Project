@@ -14,7 +14,7 @@ let multiplier = 1;
 let initScore = 420;
 let score;
 let bet = 0;
-let maxClicks;
+let maxClicks=69;
 let startTimer;
 let timer = 420;
 let ptsPerClick;
@@ -26,11 +26,7 @@ const insults = ['Nope', 'HA! Nope!','Not that one', 'Not this one ma dude','FIN
 //create event listener on submit-btn to update playerInfo
 
 submitBtn.addEventListener('click', ()=>{
-    //Counter
-    maxClicks = document.getElementById('number-clicks').value;
-    document.getElementById('number-clicks').value = '';
-    counterDiv.textContent = maxClicks;
-    
+   
     //timer, also clearInterval if timer less than 420
     timerDiv.textContent =  timer;
      if(timer<420){
@@ -38,11 +34,11 @@ submitBtn.addEventListener('click', ()=>{
         timer = 420;
         timerDiv.textContent =  timer;
     }
-    //Change score
-    scoreDiv.textContent = initScore;
 
     //change multiplier
-    multiplerDiv.textContent = 1;
+    multiplier = 1;
+    multiplerDiv.textContent = multiplier;
+    
 
     //Store Bet amount
     bet = document.getElementById('bet').value;
@@ -97,8 +93,16 @@ startBtn.addEventListener('click',()=>{
 
     //change colors
     document.body.style.backgroundColor = 'black';
-    document.getElementById('container-1').style.color = 'white';
+    document.getElementById('container-1').style.color = 'red';
+    document.getElementById('container-1').style.backgroundColor = 'black';
     gameboardDiv.style.backgroundColor = 'blue';
+    document.getElementById('game-options').style.backgroundColor = 'black';
+    document.getElementById('game-options').style.color = 'red';
+    document.getElementById('game-options').style.border = '5px solid red'
+    document.getElementById('player-info').style.backgroundColor = 'black';
+    document.getElementById('player-info').style.color = 'red';
+    document.getElementById('player-info').style.border = '5px solid red'
+    
 
     //change location of square
     let topDist = Math.floor(Math.random()* gameboardDiv.offsetHeight);
@@ -110,12 +114,17 @@ startBtn.addEventListener('click',()=>{
     submitBtn.style.display = 'inline';
 })
 
-//Create event listener on black box; save timer, show modal score box
+//Create event listener on black box; save timer
 findMeDiv.addEventListener('click',()=>{
     timer = 0;
-    moneyBag += bet;
-    console.log(moneyBag)
-    document.getElementById('money-bag').innerHTML = moneyBag;
+    if(moneyBag!=0){
+        moneyBag += bet + score;
+    }
+    else{
+        moneyBag += score;
+    }
+    document.getElementById('money-bag').textContent = moneyBag;
+    findMeDiv.style.backgroundColor = 'red'
 })
 
 //Display score Function
@@ -128,7 +137,7 @@ function displayScore(clicks){
 //Clicks to change multiplier. Will need to cycle back to zero once max multi is reached.
 
 function changeMulti(clicks){
-    if (clicks%10==0){
+    if (clicks%10===0){
         multiplier++;
         if (multiplier>5){
             multiplier=5;

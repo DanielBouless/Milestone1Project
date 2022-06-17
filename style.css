@@ -1,10 +1,21 @@
 body{
     max-width: fit-content;
     margin:auto;
+    background-color: rgb(221,
+        215,
+        215);
+        font-family: Arial, Helvetica, sans-serif;
 }
 
 #container-1{
     text-align: center;
+    background-color: rgb(127,
+        63,
+        64);
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 5px solid black;
 }
 
 #container-2 {
@@ -15,11 +26,15 @@ body{
 }
 
 #game-options, #player-info{
-    margin: 0 5vh;
+    font-size: 1.25em;
     padding: 0 5vh;
     width: 20%;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: rgb(127,
+                63,
+                64);
+    border-radius: 10px;
+    border: 5px solid black;
 }
 
 #gameboard{
@@ -27,14 +42,31 @@ body{
     width: 80vh;
     background-color: white;
     position: relative;
+    margin: 0 5px 0 5px;
+    border-radius: 10px;
+        border: 5px solid black;
 }
 #find-me{
     width: 10px;
     height: 10px;
     background-color: black;
     position: absolute;
+    top: 50%;
+    left: 50%;
+
 }
 
 #start-btn{
     display:none;
+}
+
+
+.game-settings{
+    font-size: 1.25em;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#player-info p{
+    margin-top: 5px;
 }
