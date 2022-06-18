@@ -8,3 +8,8 @@ Select your difficulty which changes the size of the black box. If you're feelin
 Once you submit your difficulty and bet, smash that start button and start clickin'.
 
 The score is just as annoying as the game. You want to get the highest score possible because that gets added to your money bag.
+
+
+The way the game was built was creating div elements and assigning an event listener. Event listeners will either change the information on the page or change colors.
+
+Current bugs are the bets are coming through as strings so the bet gets spliced together instead of added.
