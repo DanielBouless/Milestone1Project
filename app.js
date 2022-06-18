@@ -142,7 +142,7 @@ findMeDiv.addEventListener('click',()=>{
     }
     document.getElementById('money-bag').textContent = moneyBag;
     findMeDiv.style.backgroundColor = 'red';
-    insultDiv.innerHTML = insults[5];
+    insultDiv.textContent = insults[5];
 })
 
 //Display score Function
