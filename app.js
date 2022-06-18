@@ -7,6 +7,7 @@ const findMeDiv = document.getElementById('find-me');
 const startBtn = document.getElementById('start-btn');
 const playState = document.getElementById('play-state');
 const submitBtn = document.getElementById('submit-btn');
+const insultDiv = document.getElementById('distractions');
 
 
 let clicks=0;
@@ -14,13 +15,13 @@ let multiplier = 1;
 let initScore = 420;
 let score;
 let bet = 0;
-let maxClicks=69;
+let maxClicks=5;
 let startTimer;
 let timer = 420;
 let ptsPerClick;
 let diffState;
 let moneyBag = 0;
-const insults = ['Nope', 'HA! Nope!','Not that one', 'Not this one ma dude','FIND ME!!!!']
+const insults = ['Nope', 'HA! Nope!','Not that one', 'Not this one ma dude','FIND ME!!!!','Yeah, you win...']
 
 //Setup game
 //create event listener on submit-btn to update playerInfo
@@ -70,6 +71,16 @@ gameboardDiv.addEventListener('click',()=>{
     clicks += 1;
     let clicksRemaining = maxClicks - clicks;
     counterDiv.textContent = clicksRemaining;
+    if(clicksRemaining<=0){
+        clicks = 0;
+        clicksRemaining = 0;
+        bet = 0;
+        score = score;
+        counterDiv.textContent = clicksRemaining;
+        insultDiv.textContent = 'Loser :)'
+        timer = timer;
+    }
+
 
     //Update Multiplier after every click
     changeMulti(clicks);
@@ -78,7 +89,7 @@ gameboardDiv.addEventListener('click',()=>{
     displayScore(clicks);
     
     //display different insult for every click
-    // displayInsult();
+    displayInsult();
 })
 
 //Create events when hit start
@@ -95,13 +106,13 @@ startBtn.addEventListener('click',()=>{
     document.body.style.backgroundColor = 'black';
     document.getElementById('container-1').style.color = 'red';
     document.getElementById('container-1').style.backgroundColor = 'black';
-    gameboardDiv.style.backgroundColor = 'blue';
+    gameboardDiv.style.backgroundColor = 'black';
     document.getElementById('game-options').style.backgroundColor = 'black';
     document.getElementById('game-options').style.color = 'red';
     document.getElementById('game-options').style.border = '5px solid red'
     document.getElementById('player-info').style.backgroundColor = 'black';
     document.getElementById('player-info').style.color = 'red';
-    document.getElementById('player-info').style.border = '5px solid red'
+    document.getElementById('player-info').style.border = '5px solid red';
     
 
     //change location of square
@@ -124,7 +135,8 @@ findMeDiv.addEventListener('click',()=>{
         moneyBag += score;
     }
     document.getElementById('money-bag').textContent = moneyBag;
-    findMeDiv.style.backgroundColor = 'red'
+    findMeDiv.style.backgroundColor = 'red';
+    insultDiv.innerHTML = insults[5];
 })
 
 //Display score Function
@@ -167,3 +179,9 @@ function myTimer(){
 
 //insult
 
+function displayInsult(){
+    let i = Math.floor(Math.random()*insults.length);
+    insultDiv.textContent = insults[i];
+    console.log(insults[i])
+
+}
