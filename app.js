@@ -21,7 +21,7 @@ let timer = 420;
 let ptsPerClick;
 let diffState;
 let moneyBag = 0;
-const insults = ['Nope', 'HA! Nope!','Not that one', 'Not this one ma dude','FIND ME!!!!','Yeah, you win...']
+const insults = ['Nope', 'HA! Nope!','Not that one', 'Nah mah dude','FIND ME!!!!','Yeah, you win...']
 
 //Setup game
 //create event listener on submit-btn to update playerInfo
@@ -69,6 +69,7 @@ submitBtn.addEventListener('click', ()=>{
    
 })
 
+<<<<<<< HEAD
 // //Get number of gameboard clicks
 // gameboardDiv.addEventListener('click',()=>{
 //     clicks += 1;
@@ -83,6 +84,30 @@ submitBtn.addEventListener('click', ()=>{
 //         insultDiv.textContent = 'Loser :)'
 //         timer = timer;
 //     }
+=======
+
+
+//Create events when hit start
+        //start timer when you hit start button, change "Ready?" to "SEEK!", change display to black and text to white, randomize black box location
+
+startBtn.addEventListener('click',()=>{
+
+
+//Get number of gameboard clicks
+gameboardDiv.addEventListener('click',()=>{
+    clicks += 1;
+    let clicksRemaining = maxClicks - clicks;
+    counterDiv.textContent = clicksRemaining;
+    if(clicksRemaining<=0){
+        clicks = 0;
+        clicksRemaining = 0;
+        bet = 0;
+        score = score;
+        counterDiv.textContent = clicksRemaining;
+        insultDiv.textContent = 'Loser :)'
+        timer = timer;
+    }
+>>>>>>> bb022d3dbd51aed6731138c4f2f97c9a08c868e8
 
 
 //     //Update Multiplier after every click
@@ -95,10 +120,8 @@ submitBtn.addEventListener('click', ()=>{
 //     displayInsult();
 // })
 
-//Create events when hit start
-        //start timer when you hit start button, change "Ready?" to "SEEK!", change display to black and text to white, randomize black box location
 
-startBtn.addEventListener('click',()=>{
+
     //start timer
     startTimer = setInterval(myTimer,1000)
    
@@ -166,10 +189,14 @@ findMeDiv.addEventListener('click',()=>{
     }
     document.getElementById('money-bag').textContent = moneyBag;
     findMeDiv.style.backgroundColor = 'red';
+<<<<<<< HEAD
     insultDiv.innerHTML = insults[5];
     this.removeEventListener('click', ()=>{});
     gameboardDiv.removeEventListener('click', ()=>{});
     
+=======
+    insultDiv.textContent = insults[5];
+>>>>>>> bb022d3dbd51aed6731138c4f2f97c9a08c868e8
 })
 })
 
