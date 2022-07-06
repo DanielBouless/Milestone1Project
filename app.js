@@ -69,7 +69,6 @@ submitBtn.addEventListener('click', ()=>{
    
 })
 
-<<<<<<< HEAD
 // //Get number of gameboard clicks
 // gameboardDiv.addEventListener('click',()=>{
 //     clicks += 1;
@@ -84,30 +83,6 @@ submitBtn.addEventListener('click', ()=>{
 //         insultDiv.textContent = 'Loser :)'
 //         timer = timer;
 //     }
-=======
-
-
-//Create events when hit start
-        //start timer when you hit start button, change "Ready?" to "SEEK!", change display to black and text to white, randomize black box location
-
-startBtn.addEventListener('click',()=>{
-
-
-//Get number of gameboard clicks
-gameboardDiv.addEventListener('click',()=>{
-    clicks += 1;
-    let clicksRemaining = maxClicks - clicks;
-    counterDiv.textContent = clicksRemaining;
-    if(clicksRemaining<=0){
-        clicks = 0;
-        clicksRemaining = 0;
-        bet = 0;
-        score = score;
-        counterDiv.textContent = clicksRemaining;
-        insultDiv.textContent = 'Loser :)'
-        timer = timer;
-    }
->>>>>>> bb022d3dbd51aed6731138c4f2f97c9a08c868e8
 
 
 //     //Update Multiplier after every click

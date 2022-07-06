@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YUH420YUH</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container-1"><h1>Blind Whack-A-Mole</h1></div>
+
+    <div id="container-2">
+      <div id="game-options">
+        <form>
+          <p>Select game options</p>
+          <label for="preset-difficulty">Select Difficulty: </label>
+          <select name="preset-difficulty" id="preset-difficulty">
+            <option value="Normal">--Select--</option>
+            <option value="Easy">Easy</option>
+            <option value="Normal">Normal</option>
+            <option value="Hard">Hard</option>
+          </select>
+
+          <br /><br />
+          <div id="example-dot"></div>
+          <label for="bet">Bet: </label><br />
+          <input
+            value="0"
+            type="number"
+            id="bet"
+            name="bet"
+            min="1"
+            max="99999"
+          />
+          <br /><br />
+        </form>
+        <input type="button" value="submit" id="submit-btn" />
+        <br />
+        <input type="button" value="start" id="start-btn" />
+        <br />
+        <input type="button" value="reset" id="reset-btn" />
+      </div>
+
+      <div id="gameboard">
+        <div id="find-me"></div>
+      </div>
+      <div id="player-info">
+        <p id="play-state">Ready?</p>
+        <div id="counter" class="game-settings">69</div>
+        <p>Clicks Remaining</p>
+        <div id="distractions" class="game-settings">Dont Get Bored Pls</div>
+        <div id="timer" class="game-settings">420</div>
+        <p>Time Left</p>
+        <div id="score" class="game-settings">420</div>
+        <p>Points</p>
+        <div id="money-bag" class="game-settings">0</div>
+        <p>Money Bag</p>
+        <div id="current-bet" class="game-settings">0</div>
+        <p>Current Bet</p>
+      </div>
+    </div>
+  </body>
+  <script src="./app.js"></script>
+</html>
