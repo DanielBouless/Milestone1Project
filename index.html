@@ -12,50 +12,54 @@
 
     <div id="container-2">
       <div id="game-options">
-        <p>Select game options</p>
-        <form action="">
-        <label for="preset-difficulty">Select Difficulty: </label>
-        <select required name="preset-difficulty" id="preset-difficulty">
-          <option value="Normal">--Select--</option>
-          <option value="Easy">Easy</option>
-          <option value="Normal">Normal</option>
-          <option value="Hard">Hard</option>
-        </select><br><br>
-        <label for="bet">Bet: </label><br />
-        <input
-          type="number"
-          id="bet"
-          name="bet"
-          min="1"
-          max="99999"
-        />
-        <br /><br />
-        <input type="button" value="submit" id="submit-btn"/>
-        <br /><br />
+        <form>
+          <p>Select game options</p>
+          <label for="preset-difficulty">Select Difficulty: </label>
+          <select name="preset-difficulty" id="preset-difficulty">
+            <option value="Normal">--Select--</option>
+            <option value="Easy">Easy</option>
+            <option value="Normal">Normal</option>
+            <option value="Hard">Hard</option>
+          </select>
+
+          <br /><br />
+          <div id="example-dot"></div>
+          <label for="bet">Bet: </label><br />
+          <input
+            value="0"
+            type="number"
+            id="bet"
+            name="bet"
+            min="1"
+            max="99999"
+          />
+          <br /><br />
+        </form>
+        <input type="button" value="submit" id="submit-btn" />
+        <br />
         <input type="button" value="start" id="start-btn" />
+        <br />
+        <input type="button" value="reset" id="reset-btn" />
       </div>
-      
+
       <div id="gameboard">
         <div id="find-me"></div>
       </div>
       <div id="player-info">
         <p id="play-state">Ready?</p>
-        <div id="counter"  class="game-settings">69</div>
-        <p >Clicks Remaining</p>
-        <div id="multiplier"  class="game-settings">1</div>
-        <p >Multiplier</p>
-        <div id="distractions"  class="game-settings">Dont Get Bored Pls</div>
+        <div id="counter" class="game-settings">69</div>
+        <p>Clicks Remaining</p>
+        <div id="distractions" class="game-settings">Dont Get Bored Pls</div>
         <div id="timer" class="game-settings">420</div>
-        <p >Time Left</p>
+        <p>Time Left</p>
         <div id="score" class="game-settings">420</div>
-        <p >Points</p>
+        <p>Points</p>
         <div id="money-bag" class="game-settings">0</div>
-        <p >Money Bag</p>
+        <p>Money Bag</p>
         <div id="current-bet" class="game-settings">0</div>
-        <p >Current Bet</p>
-        
+        <p>Current Bet</p>
       </div>
     </div>
   </body>
-  <script src="appV2.js"></script>
+  <script src="./app.js"></script>
 </html>
